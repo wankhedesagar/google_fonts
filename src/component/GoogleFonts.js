@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function GoogleFonts(props) {
+const [googlefonts,setGoogleFonts] = useState([])
+
   const apiCall = async () => {
     const url = (`https://www.googleapis.com/webfonts/v1/webfonts?key=${props.apikey}`);
     const data = await fetch(url);
     const result = await data.json();
     console.log(result);
+    setGoogleFonts(result.items)
   };
 
   useEffect(() => {
@@ -13,7 +16,15 @@ function GoogleFonts(props) {
   }, []);
 
   return (
-    <div className="App">
+    <div className="container">
+        <h1>Google Fonts</h1>
+        {googlefonts.map((items) => {
+           return(
+            <div>
+                 <p>{items.category}</p>
+            </div>
+           )
+        })}
     </div>
   );
 }
