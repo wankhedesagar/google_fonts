@@ -29,12 +29,14 @@ function GoogleFonts(props) {
               <div className="card-body">
                 <p className="card-title">Category:{items.category}</p>
                 <p className="card-text">family:{items.family}</p>
-                <a href={items.files.italic}>
-                  italic:{items.files.italic === undefined ? 'not available' : items.files.italic }              
-                </a><br />
-                <a href={items.files.regular}> 
-                regular:{items.files.regular} 
-                </a><br />
+                <div className="d-flex justify-content-between flex-column">
+                <span>italic:</span><a href={items.files.italic}>
+                  {items.files.italic === undefined ? 'not available' : items.files.italic }              
+                </a>
+                <span>regular:</span><a href={items.files.regular}> 
+                {items.files.regular === undefined ? 'not available' : items.files.regular } 
+                </a>
+                </div>
               </div>
             </div>
           );
