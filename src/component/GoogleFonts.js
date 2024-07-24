@@ -24,15 +24,17 @@ function GoogleFonts(props) {
         </div>
         {googlefonts.map((items,id) => {
           return (
-            <div key={id} className="card col-md-3 mx-2 my-2"  style={{width:"450px",height:"350px"}}>
+            <div key={id} className="card col-md-3 mx-2 my-2" style={{width: "350px"}} >
               {/* <img src="..." className="card-img-top" alt="..." /> */}
               <div className="card-body">
                 <p className="card-title">Category:{items.category}</p>
                 <p className="card-text">family:{items.family}</p>
                 <a href={items.files.italic}>
-                  italic:{items.files.italic}              
+                  italic:{items.files.italic === undefined ? 'not available' : items.files.italic }              
                 </a><br />
-                <a href={items.files.regular}> regular:{items.files.regular} </a><br />
+                <a href={items.files.regular}> 
+                regular:{items.files.regular} 
+                </a><br />
               </div>
             </div>
           );
