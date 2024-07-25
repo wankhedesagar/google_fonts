@@ -40,6 +40,12 @@ function GoogleFonts(props) {
                 <p className="my-0">lastModified: {items.lastModified}</p>
                 <span>Menu:</span> <a href={items.menu}>{items.menu}</a>
             
+                <h2 style={{textAlign:'left'}}>subsets</h2>
+                <ul>
+                    <li>{items.subsets[0]}</li>
+                    <li>{items.subsets[1]}</li>
+                </ul>
+               
                 </div>
               </div>
             </div>
