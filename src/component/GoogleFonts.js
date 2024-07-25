@@ -45,7 +45,11 @@ function GoogleFonts(props) {
                     <li>{items.subsets[0]}</li>
                     <li>{items.subsets[1]}</li>
                 </ul>
-               
+                <h2 style={{textAlign:'left'}}>variants</h2>
+                <ul>
+                    <li>{items.variants[0]}</li>
+                    <li>{items.variants[1]}</li>
+                </ul>
                 </div>
               </div>
             </div>
