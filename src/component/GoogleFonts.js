@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./GoogleFonts.css";
+
 
 function GoogleFonts(props) {
   const [googlefonts, setGoogleFonts] = useState([]);
@@ -24,7 +24,7 @@ function GoogleFonts(props) {
         </div>
         {googlefonts.map((items,id) => {
           return (
-            <div key={id} className="card col-md-3 mx-2 my-2 p-0" style={{width: "350px"}} >
+            <div key={id} className="card col-md-2 mx-2 my-2 p-0">
               {/* <img src="..." className="card-img-top" alt="..." /> */}
               <div className="card-body">
                 <p className="card-title">Category: {items.category}</p>
