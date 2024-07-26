@@ -3,13 +3,20 @@ import React, { useEffect, useState } from "react";
 
 function GoogleFonts(props) {
   const [googlefonts, setGoogleFonts] = useState([]);
+  const [loading,setLoading] = useState(true)
 
   const apiCall = async () => {
-    const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${props.apikey}`;
+    try {
+        const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${props.apikey}`;
     const data = await fetch(url);
+    setLoading(true)
     const result = await data.json();
     console.log(result);
     setGoogleFonts(result.items);
+    setLoading(false)
+    } catch (error) {
+        console.log('error',error);
+    }
   };
 
   useEffect(() => {
@@ -22,9 +29,11 @@ function GoogleFonts(props) {
         <div className="col-md-12 text-center">
             <h1>Heading</h1>
         </div>
-        {googlefonts.map((items,id) => {
+
+        {loading ? <h2 style={{textAlign:'center'}}>Loading...</h2> : googlefonts.map((items,id) => {
           return (
-            <div key={id} className="card col-md-2 mx-2 my-2 p-0">
+            <div key={id} className="card col-md-3 mx-2 my-2 p-0" style={{width: "500PX",
+                height: "560px"}}>
               {/* <img src="..." className="card-img-top" alt="..." /> */}
               <div className="card-body">
                 <p className="card-title">Category: {items.category}</p>
